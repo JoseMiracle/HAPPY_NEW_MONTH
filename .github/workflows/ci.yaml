@@ -26,6 +26,9 @@ jobs:
       - name: Check for linting
         run: |
           black projectt --exclude=migrations
+      - name: Check import sorting
+        run: |
+          isort --check-only projectt --skip migrations
       - name: Run tests
         env:  # Set the environment variable here
           DJANGO_SETTINGS_MODULE: config.settings.dev

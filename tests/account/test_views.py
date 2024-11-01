@@ -1,4 +1,4 @@
-
-
 def test_false():
-    assert False == 0
+    num = 2
+
+    assert num == 2
