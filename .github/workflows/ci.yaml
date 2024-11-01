@@ -29,7 +29,8 @@ jobs:
               black projectt --exclude=migrations
         - name: Check written tests
           run: |
-              pytest . --ds=config.settings.dev -v
+              export DJANGO_SETTINGS_MODULE=config.settings.dev
+              pytest . -v  # Run tests with the specified Django settings
 
 
 
