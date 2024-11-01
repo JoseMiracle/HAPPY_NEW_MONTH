@@ -31,7 +31,7 @@ jobs:
         env:  # Set the environment variable here
           DJANGO_SETTINGS_MODULE: config.settings.dev
         run: |
-          pytest . -v  # No --ds option
+          pytest . -v  
 
 
 
