@@ -1,39 +1,33 @@
 name: Check test and irregular import
 on:
-   # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
   push:
-     branches:
+    branches:
       - '*'
   pull_request:
-      branches:
+    branches:
       - '*'
 
 jobs:
-    runtests_and_check_irregular_imports:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out repository code
-          uses: actions/checkout@v3
-          with:
-            python-version: 3.11.4
-        - name: Install requirements
-          run: |
-              pip install -r requirements.txt
-        - name: Check irregular imports
-          run: |
-              flake8 projectt --exclude=migrations
-        - name: Check for linting
-          run:  |
-              black projectt --exclude=migrations
-        - name: Run tests
+  runtests_and_check_irregular_imports:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          python-version: 3.11.4
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+      - name: Check irregular imports
+        run: |
+          flake8 projectt --exclude=migrations
+      - name: Check for linting
+        run: |
+          black projectt --exclude=migrations
+      - name: Run tests
         env:  # Set the environment variable here
           DJANGO_SETTINGS_MODULE: config.settings.dev
         run: |
-          pytest . -v  
-
-
-
-  
-  
+          pytest . -v  # Run tests with verbose output
