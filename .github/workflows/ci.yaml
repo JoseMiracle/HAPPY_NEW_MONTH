@@ -23,10 +23,10 @@ jobs:
               pip install -r requirements.txt
         - name: Check irregular imports
           run: |
-              flake8 projectt --exclude=__pycache__,migrations
+              flake8 projectt --exclude=migrations
         - name: Check for linting
           run:  |
-              black projectt --exclude=__pycache__,migrations
+              black projectt --exclude=migrations
         - name: Check written tests
           run: |
             pytest .
