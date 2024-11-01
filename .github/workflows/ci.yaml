@@ -27,10 +27,11 @@ jobs:
         - name: Check for linting
           run:  |
               black projectt --exclude=migrations
-        - name: Check written tests
-          run: |
-              export DJANGO_SETTINGS_MODULE=config.settings.dev
-              pytest . -v  # Run tests with the specified Django settings
+        - name: Run tests
+        env:  # Set the environment variable here
+          DJANGO_SETTINGS_MODULE: config.settings.dev
+        run: |
+          pytest . -v  # No --ds option
 
 
 
