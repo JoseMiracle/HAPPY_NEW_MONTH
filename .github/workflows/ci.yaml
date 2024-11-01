@@ -29,8 +29,7 @@ jobs:
               black projectt --exclude=migrations
         - name: Check written tests
           run: |
-            pytest . --ds=config.settings.dev -v
-
+              pytest . --ds=config.settings.dev -v
 
 
 
